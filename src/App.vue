@@ -1,9 +1,13 @@
 <template>
-  <h1>Hello. I am in in App.vue</h1>
+  <main-nav />
 </template>
 
 <script>
+import MainNav from "@/components/MainNav.vue";
 export default {
   name: "App",
+  components: {
+    MainNav,
+  },
 };
 </script>
