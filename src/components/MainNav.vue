@@ -4,7 +4,7 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a href="/" class="flex items-center h-full text-2xl">TG Careers</a>
+        <a href="/" class="flex items-center h-full text-2xl">{{ company }}</a>
       </div>
     </div>
   </header>
@@ -13,5 +13,12 @@
 <script>
 export default {
   name: "MainNav",
+  data() {
+    return {
+      company: "TG Careers",
+      author: "Lilitha Mdlalana",
+    };
+  },
 };
+//11
 </script>
