@@ -21,8 +21,17 @@
           </ul>
         </nav>
         <div class="flex items-center h-full ml-auto">
-          <profile-image v-if="isLoggedIn" />
-          <action-button v-else />
+          <profile-image
+            v-if="isLoggedIn"
+            data-test="profile-image"
+            @click="logoutUser"
+          />
+          <action-button
+            v-else
+            data-test="login-button"
+            text="Sign In"
+            @click="loginUser"
+          />
         </div>
       </div>
     </div>
@@ -52,6 +61,14 @@ export default {
       url: "https://careers.google.com",
       isLoggedIn: false,
     };
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true;
+    },
+    logoutUser() {
+      this.isLoggedIn = false;
+    },
   },
 };
 </script>
