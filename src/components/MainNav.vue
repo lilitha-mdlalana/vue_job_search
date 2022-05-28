@@ -24,6 +24,7 @@
           <profile-image
             v-if="isLoggedIn"
             data-test="profile-image"
+            type="primary"
             @click="logoutUser"
           />
           <action-button
@@ -32,6 +33,7 @@
             text="Sign In"
             @click="loginUser"
           />
+          <action-button type="secondary" text="Create account" />
         </div>
       </div>
     </div>
