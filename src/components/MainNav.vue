@@ -33,10 +33,9 @@
             text="Sign In"
             @click="loginUser"
           />
-          <action-button type="secondary" text="Create account" />
         </div>
       </div>
-      <sub-nav />
+      <sub-nav v-if="isLoggedIn" />
     </div>
   </header>
 </template>
