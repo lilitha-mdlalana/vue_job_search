@@ -6,7 +6,7 @@
     <div class="flex flex-nowrap flex-1 h-full text-base font-light">
       <div class="relative flex items-center flex-1 h-full pr-3">
         <label for="role" class="absolute left-0 -top-10">Role</label>
-        <text-input placeholder="Vue Developer" @handleInput="role = $event" />
+        <text-input placeholder="Vue Developer" v-model="role" />
       </div>
       <span
         class="flex items-center h-full px-3 border-l border-r border-brand-gray-3 bg-brand-gray-2"
@@ -14,10 +14,7 @@
       >
       <div class="relative flex items-center flex-1 h-full pl-3">
         <label for="role" class="absolute left-0 -top-10">Where?</label>
-        <text-input
-          placeholder="Los Angeles"
-          @handleInput="location = $event"
-        />
+        <text-input placeholder="Los Angeles" v-model="location" />
       </div>
     </div>
     <action-button text="Search" type="secondary" class="rounded-r-3xl" />
