@@ -4,19 +4,25 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a :href="url" class="flex items-center h-full text-2xl">{{
-          company
-        }}</a>
+        <router-link
+          :to="{ name: 'Home' }"
+          class="flex items-center h-full text-2xl"
+        >
+          TotalGeek Careers
+        </router-link>
         <nav class="h-full ml-12">
           <ul class="flex h-full p-0 m-0 list-none">
             <li
               v-for="menuItem in menuItems"
-              :key="menuItem"
+              :key="menuItem.text"
               class="h-full ml-9 first:ml-0"
             >
-              <a href="" class="flex items-center h-full py-2.5">
-                {{ menuItem }}
-              </a>
+              <router-link
+                :to="menuItem.url"
+                class="flex items-center h-full py-2.5"
+              >
+                {{ menuItem.text }}
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -54,15 +60,13 @@ export default {
   data() {
     return {
       menuItems: [
-        "Teams",
-        "Locations",
-        "Life at TG",
-        "How we hire",
-        "Students",
-        "Jobs",
+        { text: "Teams", url: "/" },
+        { text: "Locations", url: "/" },
+        { text: "Life at TG", url: "/" },
+        { text: "How we hire", url: "/" },
+        { text: "Students", url: "/" },
+        { text: "Jobs", url: "/jobs/results" },
       ],
-      company: "TG Careers",
-      url: "https://careers.google.com",
       isLoggedIn: false,
     };
   },
@@ -83,4 +87,5 @@ export default {
     },
   },
 };
+// vue-router ii
 </script>
