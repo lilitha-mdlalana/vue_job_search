@@ -1,14 +1,15 @@
-//Spread syntax
+const axios = require("axios");
+const url = "http://localhost:3000/jobs";
 
-// const fruits = ["Apple", "Banana", "Orange"];
-// const vegetables = ["Cucumber", "Radish"];
-
-// const basket = [...fruits, ...vegetables];
-// console.log(basket);
-export const evenOrOdd = (number) => {
-  if (number % 2 == 0) {
-    return "Even";
-  } else {
-    return "Odd";
-  }
+const getData = async () => {
+  await axios.get(url).then((response) => {
+    console.log(response.data);
+  });
 };
+
+const getDataV2 = async () => {
+  const response = await axios.get(url);
+  const data = response.data;
+  console.log(data);
+};
+getDataV2();
