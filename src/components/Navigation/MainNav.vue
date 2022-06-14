@@ -31,7 +31,6 @@
             v-if="isLoggedIn"
             data-test="profile-image"
             type="primary"
-            @click="logoutUser"
           />
           <action-button
             v-else
@@ -67,7 +66,6 @@ export default {
         { text: "Students", url: "/" },
         { text: "Jobs", url: "/jobs/results" },
       ],
-      isLoggedIn: false,
     };
   },
   computed: {
@@ -77,13 +75,13 @@ export default {
         "h-32": this.isLoggedIn,
       };
     },
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
   },
   methods: {
     loginUser() {
-      this.isLoggedIn = true;
-    },
-    logoutUser() {
-      this.isLoggedIn = false;
+      this.$store.commit("LOGIN_USER");
     },
   },
 };
