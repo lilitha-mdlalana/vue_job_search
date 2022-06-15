@@ -49,6 +49,8 @@
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import ProfileImage from "@/components/Navigation/ProfileImage.vue";
 import SubNav from "@/components/Navigation/SubNav.vue";
+import { LOGIN_USER } from "@/store/index.js";
+
 export default {
   name: "MainNav",
   components: {
@@ -81,9 +83,8 @@ export default {
   },
   methods: {
     loginUser() {
-      this.$store.commit("LOGIN_USER");
+      this.$store.commit(LOGIN_USER);
     },
   },
 };
-// vue-router ii
 </script>
