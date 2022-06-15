@@ -6,7 +6,7 @@
       >
         <router-link
           :to="{ name: 'Home' }"
-          class="flex items-center h-full text-2xl"
+          class="flex items-center h-full text-2xl font-light"
         >
           TotalGeek Careers
         </router-link>
