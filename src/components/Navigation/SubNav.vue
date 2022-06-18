@@ -4,7 +4,9 @@
       <div v-if="onJobResultsPage" data-test="job-count">
         <font-awesome-icon :icon="['fas', 'search']" class="mr-3" />
         <span>
-          <span class="text-brand-green-1">310</span>
+          <span class="text-brand-green-1">{{
+            FILTERED_JOBS_BY_ORGANIZATIONS.length
+          }}</span>
           Jobs matched
         </span>
       </div>
@@ -13,9 +15,13 @@
 </template>
 
 <script>
+import { FILTERED_JOBS_BY_ORGANIZATIONS } from "@/store/constants";
+import { mapGetters } from "vuex";
+
 export default {
   name: "SubNav",
   computed: {
+    ...mapGetters([FILTERED_JOBS_BY_ORGANIZATIONS]),
     onJobResultsPage() {
       return this.$route.name == "JobResults";
     },
