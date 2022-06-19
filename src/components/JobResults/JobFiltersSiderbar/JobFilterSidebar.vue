@@ -9,9 +9,8 @@
           <action-button text="Clear Filters" type="secondary" />
         </div>
       </div>
-      <accordion header="Degrees">
-        <p>Degrees filter will show here</p>
-      </accordion>
+      <accordion header="Degrees"> Some html </accordion>
+      <job-filters-sidebar-job-types />
       <job-filters-sidebar-organizations />
     </section>
   </div>
@@ -21,12 +20,15 @@
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import Accordion from "@/components/Shared/Accordion.vue";
 import JobFiltersSidebarOrganizations from "@/components/JobResults/JobFiltersSiderbar/JobFiltersSidebarOrganizations.vue";
+import JobFiltersSidebarJobTypes from "@/components/JobResults/JobFiltersSiderbar/JobFiltersSidebarJobTypes.vue";
+
 export default {
   name: "JobFiltersSidebar",
   components: {
     ActionButton,
     Accordion,
     JobFiltersSidebarOrganizations,
+    JobFiltersSidebarJobTypes,
   },
 };
 </script>
