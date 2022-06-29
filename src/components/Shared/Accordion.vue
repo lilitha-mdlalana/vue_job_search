@@ -8,12 +8,15 @@
       <font-awesome-icon :icon="caretIcon" />
     </div>
     <div v-if="isOpen" class="w-full mt-5">
-      <slot> </slot>
+      <slot>
+        <p>Whoops! Someone forgot to give me some content!</p>
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
+import { ref, computed } from "vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Accordion",
@@ -23,20 +26,21 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      isOpen: false,
+  setup() {
+    const isOpen = ref(false);
+
+    const open = () => {
+      isOpen.value = !isOpen.value;
     };
-  },
-  computed: {
-    caretIcon() {
-      return this.isOpen ? ["fas", "angle-up"] : ["fas", "angle-down"];
-    },
-  },
-  methods: {
-    open() {
-      this.isOpen = !this.isOpen;
-    },
+    const caretIcon = computed(() =>
+      isOpen.value ? ["fas", "angle-up"] : ["fas", "angle-down"]
+    );
+
+    return {
+      open,
+      isOpen,
+      caretIcon,
+    };
   },
 };
 </script>
