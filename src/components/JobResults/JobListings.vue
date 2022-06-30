@@ -25,8 +25,8 @@
   </main>
 </template>
 
-<script>
-import { onMounted, computed } from "vue";
+<script lang="ts">
+import { onMounted, computed, defineComponent } from "vue";
 
 import { useFilteredJobs, useFetchJobsDispatch } from "@/store/composables";
 import useCurrentPage from "@/composables/useCurrentPage";
@@ -34,7 +34,7 @@ import usePreviousAndNextPages from "@/composables/usePreviousAndNextPages";
 
 import JobListing from "@/components/JobResults/JobListing.vue";
 
-export default {
+export default defineComponent({
   name: "JobListings",
   components: {
     JobListing,
@@ -59,5 +59,5 @@ export default {
     });
     return { currentPage, previousPage, nextPage, displayedJobs };
   },
-};
+});
 </script>

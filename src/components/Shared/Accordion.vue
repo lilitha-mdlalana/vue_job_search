@@ -15,9 +15,9 @@
   </div>
 </template>
 
-<script>
-import { ref, computed } from "vue";
-export default {
+<script lang="ts">
+import { ref, computed, defineComponent } from "vue";
+export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Accordion",
   props: {
@@ -42,5 +42,5 @@ export default {
       caretIcon,
     };
   },
-};
+});
 </script>

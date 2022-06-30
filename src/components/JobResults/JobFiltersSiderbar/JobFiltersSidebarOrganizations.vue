@@ -26,6 +26,7 @@
 
 <script>
 import { ref } from "vue";
+import { key } from "@/store";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import { useUniqueOrganizations } from "@/store/composables";
@@ -39,7 +40,7 @@ export default {
     Accordion,
   },
   setup() {
-    const store = useStore();
+    const store = useStore(key);
     const router = useRouter();
 
     const selectedOrganizations = ref([]);

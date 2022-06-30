@@ -46,12 +46,13 @@
 </template>
 
 <script>
+import { defineComponent } from "vue";
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import ProfileImage from "@/components/Navigation/ProfileImage.vue";
 import SubNav from "@/components/Navigation/SubNav.vue";
 import { LOGIN_USER } from "@/store/constants";
 
-export default {
+export default defineComponent({
   name: "MainNav",
   components: {
     ActionButton,
@@ -86,5 +87,5 @@ export default {
       this.$store.commit(LOGIN_USER);
     },
   },
-};
+});
 </script>

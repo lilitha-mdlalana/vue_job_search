@@ -12,11 +12,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+
 import useConfirmRoute from "@/composables/useConfirmedRoute";
 import { useFilteredJobs } from "@/store/composables";
 
-export default {
+export default defineComponent({
   name: "SubNav",
   setup() {
     const FILTERED_JOBS = useFilteredJobs();
@@ -24,5 +26,5 @@ export default {
 
     return { onJobResultsPage, FILTERED_JOBS };
   },
-};
+});
 </script>
