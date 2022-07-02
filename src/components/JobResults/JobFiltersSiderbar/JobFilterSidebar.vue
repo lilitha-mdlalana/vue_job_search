@@ -13,6 +13,10 @@
           />
         </div>
       </div>
+      <accordion header="Skills & Qualifications">
+        <job-filters-sidebar-skills />
+      </accordion>
+
       <accordion header="Degrees">
         <job-filters-sidebar-checkbox-group
           :unique-values="uniqueDegrees"
@@ -38,15 +42,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 
 import { key } from "@/store";
 
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import JobFiltersSidebarCheckboxGroup from "@/components/JobResults/JobFiltersSiderbar/JobFiltersSidebarCheckboxGroup.vue";
 import Accordion from "@/components/Shared/Accordion.vue";
-
+import JobFiltersSidebarSkills from "@/components/JobResults/JobFiltersSiderbar/JobFiltersSidebarSkills.vue";
 import {
   useUniqueDegrees,
   useUniqueJobTypes,
@@ -58,6 +63,7 @@ import {
   ADD_SELECTED_ORGANIZATIONS,
   ADD_SELECTED_DEGREES,
   CLEAR_USER_JOB_FILTER_SELECTIONS,
+  UPDATE_SKILLS_SEARCH_TERM,
 } from "@/store/constants";
 export default defineComponent({
   name: "JobFiltersSidebar",
@@ -65,6 +71,7 @@ export default defineComponent({
     ActionButton,
     JobFiltersSidebarCheckboxGroup,
     Accordion,
+    JobFiltersSidebarSkills,
   },
   setup() {
     const store = useStore(key);
@@ -74,6 +81,12 @@ export default defineComponent({
     const clearUserJobFilterSelection = (): void => {
       store.commit(CLEAR_USER_JOB_FILTER_SELECTIONS);
     };
+    const parseSkillsSearchTerm = () => {
+      const route = useRoute();
+      const role = route.query.role || "";
+      store.commit(UPDATE_SKILLS_SEARCH_TERM, role);
+    };
+    onMounted(parseSkillsSearchTerm);
     return {
       uniqueJobTypes,
       uniqueDegrees,
