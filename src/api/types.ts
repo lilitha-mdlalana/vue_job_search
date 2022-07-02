@@ -1,7 +1,7 @@
 export interface Job {
   id: number;
   title: string;
-  organizations: string;
+  organization: string;
   degree: string;
   jobType: string;
   locations: string[];
@@ -9,4 +9,9 @@ export interface Job {
   prefferedQualification: string[];
   description: string[];
   dateAdded: string;
+}
+
+export interface Degree {
+  id: number;
+  degree: string;
 }
